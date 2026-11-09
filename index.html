@@ -315,6 +315,31 @@ function showFloor() {
         floor + "-floor.jpg";
 }
 </script>
+   <h2>Campus Floor Maps</h2>
+
+<select id="floor" onchange="showFloor()">
+    <option value="ground">Ground Floor</option>
+    <option value="first">First Floor</option>
+    <option value="second">Second Floor</option>
+    <option value="third">Third Floor</option>
+    <option value="fourth">Fourth Floor</option>
+</select>
+
+<br><br>
+
+<img id="floorMap"
+     src="ground-floor.jpg"
+     width="80%"
+     alt="Floor Map">
+
+<script>
+function showFloor() {
+    let floor = document.getElementById("floor").value;
+
+    document.getElementById("floorMap").src =
+        floor + "-floor.jpg";
+}
+</script>
     
 </body>
 </html>
