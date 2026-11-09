@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CampusPath</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f7fb;
+    color: #183153;
+}
+
+header {
+    background: white;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px #ddd;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #2166b1;
+}
+
+nav a {
+    text-decoration: none;
+    margin-left: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #2166b1;
+}
+
+.hero {
+    background: linear-gradient(120deg, #2166b1, #5598e5);
+    color: white;
+    padding: 70px 8%;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.search-box {
+    margin: auto;
+    max-width: 500px;
+    display: flex;
+    gap: 10px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+}
+
+button {
+    background: #ff7a36;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #e96320;
+}
+
+.container {
+    padding: 40px 8%;
+}
+
+.container h2 {
+    margin-bottom: 25px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px #ddd;
+    text-align: center;
+}
+
+.card h3 {
+    margin: 15px 0;
+    color: #2166b1;
+}
+
+.card p {
+    color: #666;
+    line-height: 1.5;
+}
+
+.card button {
+    margin-top: 20px;
+}
+
+#result {
+    margin-top: 25px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+}
+
+footer {
+    background: #183153;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">📍 CampusPath</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#locations">Locations</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h1>Find Your Way Around Campus</h1>
+
+    <p>
+        Discover classrooms, laboratories, departments
+        and campus facilities easily.
+    </p>
+
+    <div class="search-box">
+        <input type="text" id="search"
+        placeholder="Search campus location">
+
+        <button onclick="searchLocation()">Search</button>
+    </div>
+</section>
+
+<section class="container" id="features">
+    <h2>CampusPath Features</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🔍 Search Locations</h3>
+            <p>Search classrooms, laboratories and buildings.</p>
+            <button onclick="showLocations()">Explore</button>
+        </div>
+
+        <div class="card">
+            <h3>🧭 Navigation</h3>
+            <p>Find directions to your campus destination.</p>
+            <button onclick="showNavigation()">Navigate</button>
+        </div>
+
+        <div class="card">
+            <h3>📌 Location Details</h3>
+            <p>View building names, floors and room numbers.</p>
+            <button onclick="showLocations()">View Details</button>
+        </div>
+
+        <div class="card">
+            <h3>📱 QR Access</h3>
+            <p>Access campus locations through QR codes.</p>
+            <button onclick="showQR()">Explore</button>
+        </div>
+
+    </div>
+</section>
+
+<section class="container" id="locations">
+    <h2>Campus Locations</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>📚 Library</h3>
+            <p>Main Library Building</p>
+        </div>
+
+        <div class="card">
+            <h3>💻 Computer Lab</h3>
+            <p>Computer Science Block</p>
+        </div>
+
+        <div class="card">
+            <h3>🏢 Administrative Office</h3>
+            <p>Administrative Building</p>
+        </div>
+
+        <div class="card">
+            <h3>🔬 Physics Lab</h3>
+            <p>Science Block</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="container" id="about">
+    <h2>About CampusPath</h2>
+
+    <p>
+        CampusPath is a campus navigation website prototype
+        designed to help students and visitors find campus
+        locations easily and access simple directions.
+    </p>
+
+    <div id="result"></div>
+</section>
+
+<footer>
+    <p>© 2026 CampusPath | Campus Navigation System</p>
+</footer>
+
+<script>
+
+function searchLocation() {
+
+    let location = document.getElementById("search").value;
+
+    let result = document.getElementById("result");
+
+    if (location.trim() === "") {
+        result.innerHTML = "Please enter a campus location.";
+        return;
+    }
+
+    result.innerHTML =
+        "Searching for: <b>" + location + "</b><br><br>" +
+        "Campus location search completed (demo).";
+}
+
+function showLocations() {
+
+    document.getElementById("result").innerHTML =
+        "<h3>Available Locations</h3>" +
+        "Library<br>" +
+        "Computer Lab<br>" +
+        "Physics Lab<br>" +
+        "Administrative Office";
+}
+
+function showNavigation() {
+
+    document.getElementById("result").innerHTML =
+        "<h3>Campus Navigation</h3>" +
+        "1. Start at the Main Gate.<br>" +
+        "2. Follow the campus pathway.<br>" +
+        "3. Reach your selected destination.";
+}
+
+function showQR() {
+
+    document.getElementById("result").innerHTML =
+        "<h3>QR Access</h3>" +
+        "QR code scanning can be added in the next development stage.";
+}
+
+</script>
+
+</body>
+</html>
