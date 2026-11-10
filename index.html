@@ -2,85 +2,66 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CampusPath | Floor Navigation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CampusPath | Main Block Navigation</title>
 
 <style>
-:root {
-    --navy: #12345b;
-    --blue: #2878d0;
-    --light: #eaf4ff;
-    --orange: #f28b35;
-    --text: #203247;
-    --muted: #64748b;
-}
-
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f5f8fc;
-    color: var(--text);
+    font-family: Arial, sans-serif;
+    background: #f3f6fb;
+    color: #172554;
 }
-
-/* HEADER */
 
 header {
-    background: linear-gradient(120deg, var(--navy), var(--blue));
+    background: #123b75;
     color: white;
-    padding: 18px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: wrap;
+    padding: 20px;
+    text-align: center;
 }
 
-.brand {
-    font-size: 24px;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+header h1 {
+    font-size: 30px;
 }
 
-.logo {
-    background: white;
-    color: var(--blue);
-    border-radius: 12px;
-    padding: 8px;
+header p {
+    margin-top: 8px;
 }
 
 nav {
+    background: #0b2850;
     display: flex;
-    gap: 7px;
+    justify-content: center;
     flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px;
 }
 
 nav button {
-    padding: 10px 13px;
-    border: 1px solid #ffffff55;
-    border-radius: 9px;
     background: transparent;
     color: white;
+    border: none;
+    padding: 12px 18px;
     cursor: pointer;
+    font-size: 15px;
+    border-radius: 6px;
 }
 
-nav button.active,
-nav button:hover {
-    background: white;
-    color: var(--navy);
+nav button:hover,
+nav button.active {
+    background: #2563eb;
 }
 
-/* MAIN */
-
-main {
-    max-width: 1100px;
-    margin: 25px auto;
-    padding: 0 16px;
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 25px;
 }
 
 .page {
@@ -91,205 +72,142 @@ main {
     display: block;
 }
 
-.hero {
-    background: linear-gradient(135deg, #eaf4ff, #fff);
-    border: 1px solid #d8e8f8;
-    border-radius: 20px;
-    padding: 28px;
-    display: grid;
-    grid-template-columns: 1.2fr .8fr;
-    gap: 20px;
-    align-items: center;
-}
-
-h1 {
-    color: var(--navy);
-    font-size: clamp(28px, 4vw, 42px);
-    margin: 10px 0;
-}
-
-h2, h3 {
-    color: var(--navy);
-}
-
-p {
-    line-height: 1.6;
-    color: var(--muted);
-}
-
-.hero-art {
-    background: #dbeeff;
-    border-radius: 16px;
-    min-height: 170px;
-    display: grid;
-    place-items: center;
-    font-size: 80px;
-}
-
-.tag {
-    display: inline-block;
-    background: #e8f4ff;
-    color: #2366aa;
-    padding: 5px 9px;
-    border-radius: 30px;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-/* BUTTONS */
-
-.btn {
-    border: 0;
-    background: var(--blue);
-    color: white;
-    padding: 12px 16px;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.btn.secondary {
-    background: #eaf2fc;
-    color: var(--navy);
-}
-
-.btn.orange {
-    background: var(--orange);
-}
-
-/* SEARCH */
-
-.searchbar {
-    display: flex;
-    gap: 9px;
-}
-
-.searchbar input,
-.field input,
-.field select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #d7e2ee;
-    border-radius: 10px;
-    font-size: 15px;
-    background: white;
-}
-
-/* CARDS */
-
-.section {
-    margin-top: 25px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 14px;
-}
-
 .card {
     background: white;
-    border: 1px solid #e3ebf3;
-    border-radius: 15px;
-    padding: 18px;
-    box-shadow: 0 5px 15px #12345b08;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
 }
 
-.card p {
-    margin: 8px 0;
+.hero {
+    text-align: center;
+    padding: 45px 20px;
 }
 
-.icon {
-    font-size: 30px;
-}
-
-.section-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
+.hero h2 {
+    font-size: 32px;
+    color: #123b75;
     margin-bottom: 15px;
 }
 
-/* FLOOR MAP */
-
-.layout {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 18px;
+.hero p {
+    font-size: 17px;
+    line-height: 1.6;
 }
 
-.floor-frame {
-    background: #f8fbff;
-    border: 2px dashed #cbd8e5;
-    border-radius: 14px;
-    min-height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    overflow: hidden;
+.btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 13px 22px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 15px;
 }
 
-.floor-frame img {
+.btn:hover {
+    background: #1d4ed8;
+}
+
+h2, h3 {
+    margin-bottom: 15px;
+}
+
+select,
+input {
     width: 100%;
-    height: auto;
-    max-height: 650px;
-    object-fit: contain;
+    padding: 13px;
+    margin: 10px 0 18px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 16px;
+    background: white;
 }
 
-.field {
-    margin: 13px 0;
+.floor-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
 }
 
-.field label {
+.floor-buttons button {
+    background: #e2e8f0;
+    color: #123b75;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.floor-buttons button.active {
+    background: #2563eb;
+    color: white;
+}
+
+.map-box {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    overflow: auto;
+    text-align: center;
+}
+
+.map-box img {
     display: block;
-    font-weight: bold;
-    font-size: 13px;
-    margin-bottom: 6px;
-    color: #42566c;
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+    margin: auto;
+    cursor: zoom-in;
 }
 
-.routebox {
-    background: #f2f7fd;
-    border-radius: 12px;
-    padding: 14px;
-    line-height: 1.7;
-    margin-top: 12px;
+.map-box img.zoomed {
+    width: 1500px;
+    max-width: none;
+    cursor: zoom-out;
 }
 
-.notice {
-    background: #fff8e8;
-    border: 1px solid #f3dfb5;
-    color: #805b15;
-    padding: 12px;
-    border-radius: 12px;
-    font-size: 13px;
-    margin-top: 12px;
+.map-info {
+    background: #eff6ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.room-list {
+    margin-top: 15px;
+}
+
+.room-item {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 7px;
+    margin: 8px 0;
 }
 
 footer {
     text-align: center;
-    padding: 25px;
-    color: #718096;
-    font-size: 13px;
+    background: #123b75;
+    color: white;
+    padding: 20px;
+    margin-top: 30px;
 }
 
-/* MOBILE */
-
-@media(max-width:700px) {
-    .hero,
-    .layout {
-        grid-template-columns: 1fr;
+@media(max-width:600px) {
+    header h1 {
+        font-size: 24px;
     }
 
-    .hero-art {
-        min-height: 130px;
+    .container {
+        padding: 12px;
     }
 
-    .searchbar {
-        flex-direction: column;
+    .hero h2 {
+        font-size: 25px;
     }
 }
 </style>
@@ -298,682 +216,392 @@ footer {
 <body>
 
 <header>
-
-<div class="brand">
-    <span class="logo">🧭</span>
-    CampusPath
-</div>
-
-<nav>
-    <button class="active" data-page="home">Home</button>
-    <button data-page="search">Search</button>
-    <button data-page="floors">Floor Map</button>
-    <button data-page="navigate">Directions</button>
-    <button data-page="qr">QR Access</button>
-</nav>
-
+    <h1>CampusPath</h1>
+    <p>Main Block Campus Navigation System</p>
 </header>
 
-<main>
+<nav>
+    <button class="active" onclick="showPage('home',this)">Home</button>
+    <button onclick="showPage('floors',this)">Floor Maps</button>
+    <button onclick="showPage('search',this)">Search Rooms</button>
+    <button onclick="showPage('directions',this)">Directions</button>
+</nav>
+
+<div class="container">
 
 <!-- HOME PAGE -->
 
 <section id="home" class="page active">
 
-<div class="hero">
+    <div class="card hero">
+        <h2>Welcome to CampusPath</h2>
 
-<div>
+        <p>
+            Navigate the Main Block easily using interactive floor maps.
+            Find classrooms, laboratories, library and other facilities.
+        </p>
 
-<span class="tag">CAMPUS WAYFINDING</span>
+        <button class="btn" onclick="showPage('floors')">
+            Explore Floor Maps
+        </button>
+    </div>
 
-<h1>
-Find your place.<br>
-Reach it with ease.
-</h1>
+    <div class="card">
+        <h2>Main Block</h2>
+        <p>
+            Select a floor to view its map and locate campus facilities.
+        </p>
 
-<p>
-CampusPath helps students find classrooms, labs,
-offices and facilities using building and floor information.
-</p>
-<div class="building-card">
-    <h3>Main Block</h3>
-    <img src="images/main-block.jpg"
-         alt="Main Block Building"
-         width="300">
-    <p>Main Block - Campus Building</p>
-</div>
-
-<div class="searchbar">
-
-<input id="homeSearch"
-placeholder="Search classroom, lab, room...">
-
-<button class="btn" onclick="homeSearch()">
-Search
-</button>
-
-</div>
-
-</div>
-
-<div class="hero-art">
-🏫
-</div>
-
-</div>
-
-<div class="section">
-
-<div class="section-head">
-<h2>Quick Access</h2>
-</div>
-
-<div class="grid">
-
-<div class="card">
-<div class="icon">🔎</div>
-<h3>Search Places</h3>
-<p>Search room names and facilities.</p>
-<button class="btn secondary"
-onclick="showPage('search')">
-Search
-</button>
-</div>
-
-<div class="card">
-<div class="icon">🗺️</div>
-<h3>Floor Map</h3>
-<p>View your uploaded floor plan.</p>
-<button class="btn secondary"
-onclick="showPage('floors')">
-Open Floor Map
-</button>
-</div>
-
-<div class="card">
-<div class="icon">🧭</div>
-<h3>Directions</h3>
-<p>See simple directions to a selected room.</p>
-<button class="btn secondary"
-onclick="showPage('navigate')">
-Get Directions
-</button>
-</div>
-
-</div>
-</div>
+        <button class="btn" onclick="showPage('floors')">
+            View Main Block
+        </button>
+    </div>
 
 </section>
 
-<!-- SEARCH PAGE -->
-
-<section id="search" class="page">
-
-<div class="section-head">
-<h2>Search Campus Locations</h2>
-</div>
-
-<div class="card">
-
-<div class="searchbar">
-
-<input id="searchInput"
-placeholder="Search Library, CSE Lab, Room 101..."
-oninput="renderSearch()">
-
-<button class="btn"
-onclick="renderSearch()">
-Search
-</button>
-
-</div>
-
-<div id="results"
-class="grid"
-style="margin-top:16px">
-</div>
-
-</div>
-
-</section>
 
 <!-- FLOOR MAP PAGE -->
 
 <section id="floors" class="page">
 
-<div class="section-head">
+    <div class="card">
 
-<h2>Floor Map & Room Details</h2>
+        <h2>Main Block Floor Maps</h2>
 
-<span class="tag">YOUR FLOOR PLAN</span>
+        <label>Select Floor</label>
 
-</div>
+        <select id="floorSelect" onchange="changeFloor()">
+            <option value="Ground Floor">Ground Floor</option>
+            <option value="First Floor">First Floor</option>
+            <option value="Second Floor">Second Floor</option>
+            <option value="Third Floor">Third Floor</option>
+        </select>
 
-<div class="layout">
+        <div class="floor-buttons">
+            <button onclick="selectFloor('Ground Floor',this)" class="active">
+                Ground
+            </button>
 
-<div class="card">
+            <button onclick="selectFloor('First Floor',this)">
+                First
+            </button>
 
-<div class="field">
+            <button onclick="selectFloor('Second Floor',this)">
+                Second
+            </button>
 
-<label for="building">Building</label>
+            <button onclick="selectFloor('Third Floor',this)">
+                Third
+            </button>
+        </div>
 
-<select id="building"
-onchange="showFloorInfo()">
+        <div class="map-info">
+            <h3 id="floorTitle">Main Block - Ground Floor</h3>
+            <p>Click the map to zoom in. Click again to zoom out.</p>
+        </div>
 
-<option>Main Block</option>
-<option>CSE Block</option>
-<option>Science Block</option>
-<option>Library</option>
-<option>Admin Block</option>
+        <div class="map-box">
 
-</select>
+            <img
+                id="floorImage"
+                src="images/main-ground.jpeg"
+                alt="Main Block Ground Floor Map"
+                onclick="zoomMap()"
+            >
 
-</div>
+            <p id="imageError" style="display:none;color:red;margin:15px;">
+                Floor map not found. Please check the image filename.
+            </p>
 
-<div class="field">
+        </div>
 
-<label for="floor">Floor</label>
-
-<select id="floor"
-onchange="showFloorInfo()">
-
-<option>Ground Floor</option>
-<option>First Floor</option>
-<option>Second Floor</option>
-
-</select>
-
-</div>
-
-<div id="roomInfo"></div>
-
-<div class="notice">
-
-Upload your floor image to GitHub
-and connect its filename in the code.
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h3 id="floorTitle">Floor Plan</h3>
-
-<div class="floor-frame" id="floorImage">
-
-<div style="text-align:center;color:#718096">
-
-🗺️<br>
-Your floor map will appear here
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
+
+
+<!-- SEARCH PAGE -->
+
+<section id="search" class="page">
+
+    <div class="card">
+
+        <h2>Search Main Block Rooms</h2>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search library, classroom, lab..."
+            oninput="searchRooms()"
+        >
+
+        <div id="searchResults"></div>
+
+    </div>
+
+</section>
+
 
 <!-- DIRECTIONS PAGE -->
 
-<section id="navigate" class="page">
+<section id="directions" class="page">
 
-<div class="section-head">
+    <div class="card">
 
-<h2>Directions</h2>
+        <h2>Main Block Directions</h2>
 
-<span class="tag">SAMPLE DIRECTIONS</span>
+        <label>Starting Floor</label>
 
-</div>
+        <select id="startFloor">
+            <option>Ground Floor</option>
+            <option>First Floor</option>
+            <option>Second Floor</option>
+            <option>Third Floor</option>
+        </select>
 
-<div class="layout">
+        <label>Destination Floor</label>
 
-<div class="card">
+        <select id="endFloor">
+            <option>Ground Floor</option>
+            <option>First Floor</option>
+            <option>Second Floor</option>
+            <option>Third Floor</option>
+        </select>
 
-<div class="field">
+        <button class="btn" onclick="getDirections()">
+            Show Directions
+        </button>
 
-<label for="start">Starting Point</label>
+        <div id="directionResult" class="map-info"></div>
 
-<select id="start">
-
-<option>Main Entrance</option>
-<option>Reception</option>
-<option>Library</option>
-<option>CSE Block</option>
-
-</select>
-
-</div>
-
-<div class="field">
-
-<label for="destination">Destination</label>
-
-<select id="destination"></select>
-
-</div>
-
-<button class="btn orange"
-onclick="directions()">
-Show Directions
-</button>
-
-<div class="notice">
-
-These are sample directions.
-They do not use live GPS.
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h3>Route Instructions</h3>
-
-<div id="route" class="routebox">
-
-Choose a destination and click Show Directions.
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
-<!-- QR ACCESS PAGE -->
-
-<section id="qr" class="page">
-
-<div class="section-head">
-<h2>QR Location Access</h2>
 </div>
-
-<div class="card"
-style="max-width:650px;margin:auto;text-align:center">
-
-<div style="font-size:65px">
-📷
-</div>
-
-<p>
-Enter a room or location name to open its details.
-</p>
-
-<div class="field" style="text-align:left">
-
-<label for="qrText">Room / Location</label>
-
-<input id="qrText"
-placeholder="Example: CSE Lab 101">
-
-</div>
-
-<button class="btn"
-onclick="qrOpen()">
-Open Location
-</button>
-
-<div id="qrOutput"
-class="routebox"
-style="display:none">
-</div>
-
-<p class="notice">
-
-Camera QR scanning can be added later.
-This page currently supports manual entry.
-
-</p>
-
-</div>
-
-</section>
-
-</main>
 
 <footer>
-CampusPath • Campus Floor Navigation Prototype
+    CampusPath | Main Block Navigation
 </footer>
+
 
 <script>
 
-// CAMPUS LOCATION DATA
-
-const places = [
-
-{
-name:"CSE Lab 101",
-building:"CSE Block",
-floor:"First Floor",
-room:"101",
-type:"Laboratory",
-description:"Computer Science laboratory"
-},
-
-{
-name:"Classroom 102",
-building:"CSE Block",
-floor:"First Floor",
-room:"102",
-type:"Classroom",
-description:"CSE classroom"
-},
-
-{
-name:"Library Reading Hall",
-building:"Library",
-floor:"Ground Floor",
-room:"Reading Hall",
-type:"Facility",
-description:"Reading and study area"
-},
-
-{
-name:"Science Lab 02",
-building:"Science Block",
-floor:"Ground Floor",
-room:"02",
-type:"Laboratory",
-description:"Science practical laboratory"
-},
-
-{
-name:"Admin Office",
-building:"Admin Block",
-floor:"Ground Floor",
-room:"Office 1",
-type:"Office",
-description:"Student and administration office"
-}
-
-];
-
-// FLOOR IMAGE PATHS
-
-// Upload your images inside GitHub images folder.
-// Change these filenames to match your actual images.
+// FLOOR MAP IMAGE PATHS
 
 const floorImages = {
 
-"Main Block|Ground Floor":"images/main-ground.jpeg",
-"Main Block|First Floor":"images/main-first.jpeg",
-"Main Block|Second Floor":"images/main-second.jpeg",
+    "Ground Floor": "images/main-ground.jpeg",
 
-"CSE Block|Ground Floor":"images/cse-ground.jpeg",
-"CSE Block|First Floor":"images/cse-first.jpeg",
-"CSE Block|Second Floor":"images/cse-second.jpeg",
+    "First Floor": "images/main-first.jpeg",
 
-"Science Block|Ground Floor":"images/science-ground.jpeg",
-"Science Block|First Floor":"images/science-first.jpeg",
-"Science Block|Second Floor":"images/science-second.jpeg",
+    "Second Floor": "images/main-second.jpeg",
 
-"Library|Ground Floor":"images/library-ground.jpeg",
-"Library|First Floor":"images/library-first.jpeg",
-"Library|Second Floor":"images/library-second.jpeg",
-
-"Admin Block|Ground Floor":"images/admin-ground.jpeg",
-"Admin Block|First Floor":"images/admin-first.jpeg",
-"Admin Block|Second Floor":"images/admin-second.jpeg"
+    "Third Floor": "images/main-third.jpeg"
 
 };
 
-// PAGE NAVIGATION
 
-function showPage(id) {
+// ROOM INFORMATION
 
-document.querySelectorAll(".page")
-.forEach(p => p.classList.toggle("active",p.id===id));
+const rooms = [
 
-document.querySelectorAll("nav button")
-.forEach(b => b.classList.toggle("active",b.dataset.page===id));
+    {
+        name: "Library",
+        floor: "Ground Floor"
+    },
 
-if(id==="search") renderSearch();
+    {
+        name: "Classrooms",
+        floor: "First Floor"
+    },
 
-if(id==="floors") showFloorInfo();
+    {
+        name: "Laboratories",
+        floor: "Second Floor"
+    },
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+    {
+        name: "Classrooms and Labs",
+        floor: "Third Floor"
+    }
 
-}
+];
 
-document.querySelectorAll("nav button")
-.forEach(b =>
-b.addEventListener("click",()=>showPage(b.dataset.page))
-);
 
-// DESTINATION OPTIONS
+// NAVIGATION
 
-document.getElementById("destination").innerHTML =
-places.map(p=>`<option>${p.name}</option>`).join("");
+function showPage(pageId, button) {
 
-// SEARCH FUNCTION
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
 
-function renderSearch() {
+    document.getElementById(pageId).classList.add("active");
 
-const q = (
-document.getElementById("searchInput").value || ""
-).toLowerCase();
+    document.querySelectorAll("nav button").forEach(btn => {
+        btn.classList.remove("active");
+    });
 
-const found = places.filter(p =>
-(
-p.name+" "+p.building+" "+p.floor+" "+p.room+" "+p.type
-).toLowerCase().includes(q)
-);
-
-document.getElementById("results").innerHTML = found.length ?
-
-found.map(p=>`
-
-<div class="card">
-
-<span class="tag">${p.type}</span>
-
-<h3>${p.name}</h3>
-
-<p>
-${p.building} • ${p.floor} • Room ${p.room}
-</p>
-
-<p>${p.description}</p>
-
-<button class="btn secondary"
-onclick="goToPlace('${p.name}')">
-
-Directions
-
-</button>
-
-</div>
-
-`).join("") :
-
-`<div class="card">No location found.</div>`;
+    if(button) {
+        button.classList.add("active");
+    }
 
 }
 
-// HOME SEARCH
 
-function homeSearch() {
+// FLOOR SELECTION
 
-document.getElementById("searchInput").value =
-document.getElementById("homeSearch").value;
+function changeFloor() {
 
-showPage("search");
+    const floor = document.getElementById("floorSelect").value;
 
-renderSearch();
+    displayFloor(floor);
 
-}
-
-// SELECT LOCATION
-
-function goToPlace(name) {
-
-showPage("navigate");
-
-document.getElementById("destination").value=name;
-
-directions();
+    document.querySelectorAll(".floor-buttons button").forEach(btn => {
+        btn.classList.remove("active");
+    });
 
 }
 
-// FLOOR INFORMATION
+function selectFloor(floor, button) {
 
-function showFloorInfo() {
+    document.getElementById("floorSelect").value = floor;
 
-const b = document.getElementById("building").value;
+    displayFloor(floor);
 
-const f = document.getElementById("floor").value;
+    document.querySelectorAll(".floor-buttons button").forEach(btn => {
+        btn.classList.remove("active");
+    });
 
-const key = b+"|"+f;
-
-const src = floorImages[key];
-
-document.getElementById("floorTitle").textContent =
-b+" — "+f;
-
-const rooms = places.filter(p =>
-p.building===b && p.floor===f
-);
-
-document.getElementById("roomInfo").innerHTML =
-rooms.length ?
-
-rooms.map(p=>`
-
-<p>
-📍 <b>${p.name}</b> — Room ${p.room}
-</p>
-
-`).join("") :
-
-"<p>No room details added for this floor yet.</p>";
-
-const box = document.getElementById("floorImage");
-
-box.innerHTML = `
-
-<img src="${src}"
-alt="${b} ${f} map"
-onerror="this.style.display='none';
-this.parentElement.innerHTML=
-'Floor image not found. Upload the correct image.'">
-
-`;
+    button.classList.add("active");
 
 }
+
+
+// DISPLAY FLOOR IMAGE
+
+function displayFloor(floor) {
+
+    const image = document.getElementById("floorImage");
+
+    image.classList.remove("zoomed");
+
+    image.src = floorImages[floor];
+
+    document.getElementById("floorTitle").innerText =
+        "Main Block - " + floor;
+
+    document.getElementById("imageError").style.display = "none";
+
+    image.onerror = function() {
+
+        document.getElementById("imageError").style.display = "block";
+
+    };
+
+    image.onload = function() {
+
+        document.getElementById("imageError").style.display = "none";
+
+    };
+
+}
+
+
+// IMAGE ZOOM
+
+function zoomMap() {
+
+    document.getElementById("floorImage").classList.toggle("zoomed");
+
+}
+
+
+// SEARCH ROOMS
+
+function searchRooms() {
+
+    const input = document.getElementById("searchInput")
+        .value.toLowerCase();
+
+    const results = document.getElementById("searchResults");
+
+    results.innerHTML = "";
+
+    const filtered = rooms.filter(room =>
+        room.name.toLowerCase().includes(input)
+    );
+
+    if(filtered.length === 0) {
+
+        results.innerHTML = "<p>No rooms found.</p>";
+
+        return;
+
+    }
+
+    filtered.forEach(room => {
+
+        results.innerHTML += `
+            <div class="room-item">
+                <h3>${room.name}</h3>
+                <p>${room.floor}</p>
+                <button class="btn"
+                onclick="openFloor('${room.floor}')">
+                View Floor Map
+                </button>
+            </div>
+        `;
+
+    });
+
+}
+
+
+// OPEN FLOOR FROM SEARCH
+
+function openFloor(floor) {
+
+    showPage("floors");
+
+    document.getElementById("floorSelect").value = floor;
+
+    displayFloor(floor);
+
+}
+
 
 // DIRECTIONS
 
-function directions() {
+function getDirections() {
 
-const s = document.getElementById("start").value;
+    const start = document.getElementById("startFloor").value;
 
-const d = document.getElementById("destination").value;
+    const end = document.getElementById("endFloor").value;
 
-const p = places.find(x=>x.name===d);
+    const result = document.getElementById("directionResult");
 
-document.getElementById("route").innerHTML = p ?
+    if(start === end) {
 
-`
+        result.innerHTML =
+            "You are already on the " + start + ".";
 
-<b>From:</b> ${s}
+    } else {
 
-<br>
+        result.innerHTML =
+            "Go from " + start +
+            " to " + end +
+            " using the staircase or lift.";
 
-<b>To:</b> ${p.name}
-
-<br><br>
-
-1. Start at ${s}.
-
-<br>
-
-2. Follow signs to ${p.building}.
-
-<br>
-
-3. Go to ${p.floor}.
-
-<br>
-
-4. Find room ${p.room} (${p.name}).
-
-<br><br>
-
-<span class="tag">Sample Route</span>
-
-` :
-
-"Choose a destination.";
+    }
 
 }
 
-// QR LOCATION
 
-function qrOpen() {
+// INITIAL FLOOR
 
-const q = document.getElementById("qrText").value.trim();
-
-const out = document.getElementById("qrOutput");
-
-if(!q) {
-
-alert("Enter a room or location.");
-
-return;
-
-}
-
-out.style.display="block";
-
-const p = places.find(x =>
-x.name.toLowerCase()===q.toLowerCase()
-||
-x.room.toLowerCase()===q.toLowerCase()
-);
-
-out.innerHTML = p ?
-
-`
-
-<b>${p.name}</b>
-
-<br>
-
-${p.building} • ${p.floor} • Room ${p.room}
-
-<br>
-
-${p.description}
-
-<br>
-
-<button class="btn"
-onclick="goToPlace('${p.name}')">
-
-Directions
-
-</button>
-
-` :
-
-`Location: ${q}`;
-
-}
-
-// INITIALIZE
-
-renderSearch();
-
-showFloorInfo();
+displayFloor("Ground Floor");
 
 </script>
 
